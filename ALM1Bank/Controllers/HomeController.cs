@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ALM1Bank.Models;
+using ALM1Bank.Data;
 
 namespace ALM1Bank.Controllers
 {
@@ -20,7 +21,9 @@ namespace ALM1Bank.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var bankRepo = new BankRepository();
+
+            return View(bankRepo);
         }
 
         public IActionResult Privacy()

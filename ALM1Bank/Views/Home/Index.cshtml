@@ -1,8 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model ALM1Bank.Data.BankRepository
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>TJENA! Kolla våra kunder:</h1>
+
+@foreach (var cust in Model.Customers)
+{
+    var balance = Model.Accounts.SingleOrDefault(x => x.AccountID == cust.AccountID).Balance;
+    <h2>KundID: @cust.CustomerID - Namn: @cust.Name - Kontonummer: @cust.AccountID - Saldo: @balance pengar</h2>
+    <hr />
+}
