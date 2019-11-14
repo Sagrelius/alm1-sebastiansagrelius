@@ -8,6 +8,7 @@ namespace ALM1Bank.Data
 {
     public class BankRepository
     {
+        
         public List<Customer> Customers = new List<Customer>
         {
             new Customer {CustomerID = 1, Name = "Sebastian Sagrelius", AccountID = 1},
@@ -23,5 +24,31 @@ namespace ALM1Bank.Data
             new Account {AccountID = 3, Balance = 20000M, CustomerID = 3},
             new Account {AccountID = 4, Balance = 10000M, CustomerID = 4}
         };
+
+        public bool Withdraw(decimal amount, int accountID)
+        {
+            var account = Accounts.SingleOrDefault(x => x.AccountID == accountID);
+
+            if (account.Balance - amount < 0)
+            {
+                return false;
+            }
+            account.Balance -= amount;
+            return true;
+        }
+
+        public bool Deposit(decimal amount, int accountID)
+        {
+            var account = Accounts.SingleOrDefault(x => x.AccountID == accountID);
+            account.Balance += amount;
+            return true;
+        }
+
+        public Account GetAccount(int id)
+        {
+            var account = Accounts.SingleOrDefault(x => x.AccountID == id);
+
+            return account;
+        }
     }
 }
