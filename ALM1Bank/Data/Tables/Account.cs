@@ -7,6 +7,7 @@ namespace ALM1Bank.Data.Tables
 {
     public class Account
     {
+       
         public int AccountID { get; set; }
 
         public decimal Balance { get; set; }

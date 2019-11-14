@@ -58,5 +58,42 @@ namespace ALM1Bank.Test
 
             
         }
+
+        [Fact]
+        public void TestTransferIfUpdate() 
+        {
+
+            // arrange
+            var bankrepo = new BankRepository();
+            var amount = 500;
+            var id = 1;
+            var id2 = 2;
+            // act
+            var account = bankrepo.Transfer(amount, id, id2);
+            // Assert
+            // Om True så fungerar det
+            Assert.True(account);
+        }
+        [Fact]
+        public void TestTransferTooMuchMoney()
+        {
+
+            // arrange
+            var bankrepo = new BankRepository();
+            var amount = 10990;
+            var id = 1;
+            var id2 = 2;
+
+
+            // act
+            var account = bankrepo.Transfer(amount, id, id2);
+
+
+            // Assert
+            // Om false så fungerar det
+            Assert.False(account);
+
+        }
+
     }
 }

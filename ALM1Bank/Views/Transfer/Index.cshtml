@@ -1,0 +1,24 @@
+﻿@model ALM1Bank.Data.BankRepository
+
+    <h2 style="color: red;">@ViewBag.Message</h2>
+<div style="border: solid blue 5px; text-align:center; color: white; background-color: darkblue; border-radius:25%; margin-left: 10%; margin-top: 10%; ">
+    <h2>Överföring</h2>
+    <form asp-action="transfer" asp-controller="Transfer" method="post">
+
+        <label>Från kontonummer:</label>
+        <br />
+        <input type="text" name="accountIDOne" value="" />
+        <br />
+        <label>Till kontonummer:</label>
+        <br />
+        <input type="text" name="accountIDTwo" value="" />
+        <br />
+        <label>Ange belopp:</label>
+        <br />
+        <input type="text" name="amount" value="" />
+        <br />
+        <input type="submit" name="Bekräfta" value="Bekräfta" />
+        <br />
+      
+    </form>
+</div>
