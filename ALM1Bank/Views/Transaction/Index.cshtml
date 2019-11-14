@@ -1,0 +1,37 @@
+﻿@model ALM1Bank.Data.BankRepository
+
+
+<h1>Uttag/Insättning</h1>
+
+<h2 style="color: red;">@ViewBag.Message</h2>
+
+<form asp-action="Withdraw" asp-controller="Transaction" method="post">
+    <h3>Uttag</h3>
+    <label>Ange kontonummer:</label>
+    <br />
+    <input type="number" name="accountID" value="" />
+    <br />
+    <label>Ange belopp:</label>
+    <br />
+    <input type="number" name="amount" value="" />
+    <br />
+    <input type="submit" name="Bekräfta" value="Bekräfta" />
+</form>
+
+<br />
+<hr />
+<br />
+
+<form asp-action="Deposit" asp-controller="Transaction" method="post">
+    <h3>Insättning</h3>
+    <label>Ange kontonummer:</label>
+    <br />
+    <input type="number" name="accountID" value="" />
+    <br />
+    <label>Ange belopp:</label>
+    <br />
+    <input type="number" name="amount" value="" />
+    <br />
+    <input type="submit" name="Bekräfta" value="Bekräfta" />
+    <br />
+</form>
