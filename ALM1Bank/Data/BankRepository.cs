@@ -8,7 +8,7 @@ namespace ALM1Bank.Data
 {
     public class BankRepository
     {
-        
+
         public List<Customer> Customers = new List<Customer>
         {
             new Customer {CustomerID = 1, Name = "Sebastian Sagrelius", AccountID = 1},
@@ -50,5 +50,27 @@ namespace ALM1Bank.Data
 
             return account;
         }
+
+        public bool Transfer(decimal amount, int accountIDOne, int accountIDTwo)
+        {
+
+            var account1 = Accounts.SingleOrDefault(m => m.AccountID == accountIDOne);
+            var account2 = Accounts.SingleOrDefault(m => m.AccountID == accountIDTwo);
+            if (account1 == null || account1.Balance - amount < 0 || account2 == null || account1.AccountID == account2.AccountID)
+            {
+
+                return false;
+            }
+
+            else
+
+                account1.Balance -= amount;
+            account2.Balance += amount;
+
+            return true;
+        }
+
+
     }
 }
+
